@@ -7,7 +7,7 @@
 	<title>StepOne</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<style>
-		#upload{
+		#upload,#upload1{
 		display:none;
 		}
 		#upload_link,#anupload_link{
@@ -61,7 +61,7 @@
 						</div>
 						<label for="lab ">Upload inside pictures of warehouse</label>
 						<!-- <input type="file" name="insidepic" id="upload"> -->
-						<input type="file" name="insidepic" id="upload">
+						<input type="file" name="insidePic" id="upload1">
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
 		$(function(){
 		$("#anupload_link").on('click', function(e){
 			e.preventDefault();
-			$("#upload:hidden").trigger('click');
+			$("#upload1:hidden").trigger('click');
 		});
 		});
 	</script>

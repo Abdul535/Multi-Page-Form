@@ -1,7 +1,7 @@
+require('dotenv').config()
 const express = require('express');
-const mysql   = require('mysql');
 const fileUpload = require('express-fileupload');
-
+const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
@@ -12,6 +12,20 @@ app.use(fileUpload());
 app.set('view engine','ejs');
 
 let PORT = process.env.PORT || 3000;
+
+let pass = process.env.DB_PASS;
+const uri = "mongodb+srv://Abdul:"+pass+"@cluster0.wpuid.mongodb.net/Warehouse?retryWrites=true&w=majority";
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+
+ const personSchema = new mongoose.Schema({
+	details : Object,
+	updated :  Date
+ });
+
+const Person = mongoose.model("Person", personSchema);
+
+
+
 const person= {
 	fname: null,
 	lname: null,
@@ -103,25 +117,37 @@ app.post("/submit",(req,res)=>{
 
 
 	person.comments = req.body.comments;
-	// person.file1 = req.files.insidepic.name;
-	// person.file2 = req.files.outsidepic.name;
-console.log(req.files.insidepic.name);
+	person.file2 = req.files.outsidepic.name;
 
-	// let insidepic = req.files.insidepic;
-	// let  uploadPath = __dirname + '/db/images/' + insidepic.name;
-	//  insidepic.mv(uploadPath, function(err) {
-	// if (err)
-	// 	return res.status(500).send(err);
-	// 	console.log("File1 Uploaded");
-	// })
 
-	// let outsidepic = req.files.outsidepic;
-	// let  uploadPath2 = __dirname + '/db/images/' + outsidepic.name;
-	//  outsidepic.mv(uploadPath2, function(err) {
-	// if (err)
-	// 	return res.status(500).send(err);
-	// 	console.log("File2 Uploaded");
-	// })
+
+	person.file1 = req.files.insidePic.name;
+
+	let outsidepic = req.files.outsidepic;
+	let  uploadPath2 = __dirname + '/db/images/' + outsidepic.name;
+	 outsidepic.mv(uploadPath2, function(err) {
+	if (err)
+		return res.status(500).send(err);
+		console.log("File2 Uploaded");
+	})
+
+	let insidepic = req.files.insidePic;
+	let  uploadPath = __dirname + '/db/images/' + insidepic.name;
+	 insidepic.mv(uploadPath, function(err) {
+	if (err)
+		return res.status(500).send(err);
+		console.log("File1 Uploaded");
+	})
+
+
+
+	const person1 = new Person ({
+		details : person,
+		updated : new Date
+	});
+
+	person1.save();
+
 
 	res.render("submit");
 });
