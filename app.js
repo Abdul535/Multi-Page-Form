@@ -124,7 +124,7 @@ app.post("/submit",(req,res)=>{
 	person.file1 = req.files.insidePic.name;
 
 	let outsidepic = req.files.outsidepic;
-	let  uploadPath2 = __dirname + '/db/images/' + outsidepic.name;
+	let  uploadPath2 = __dirname + '/db/images/'+ + outsidepic.name;
 	 outsidepic.mv(uploadPath2, function(err) {
 	if (err)
 		return res.status(500).send(err);

@@ -22,7 +22,7 @@
 		<div class="container-sm">
 			<div class="mb-3 row">
 				<div class="col-6">
-				<input type="text" class="form-control" placeholder="Type" name="typ">
+				<input type="text" class="form-control" id="typ" placeholder="Type" name="typ">
 				</div>
 				<div class="col-6">
 				<input type="text" class="form-control" placeholder="Type of Roof" name="tofroof">
@@ -83,6 +83,26 @@
 
 	</form>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+
+
+window.onload = function() {
+
+    var name = localStorage.getItem("typ");
+    if (name !== null) $('#typ').val(name);
+}
+
+window.onbeforeunload = function() {
+    sessionStorage.setItem("typ", $('#typ').val());
+    
+}
+
+
+
+
+
+	</script>
 </body>
 </html>
 
