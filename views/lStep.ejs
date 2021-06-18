@@ -10,45 +10,72 @@
 		#upload{
 		display:none
 		}
-		#upload_link{
+		#upload_link,#anupload_link{
 		text-decoration:none;
 		}
 	</style>
 </head>
 <body>
 
-	<form action="/lStep" method="post">
-		<div class="container-fluid">
+<div class="container-sm">
+
 			<h4>Enter your Warehousing Listing</h4>
 			<h6>Please fill the details of your warehouse</h6>
+</div>
+<div class="container-sm mb-3" >
+		<img  src="/images/Picture4.jpg" style='height: 100%; width: 100%; object-fit: contain;' >
+</div>
+	<form action="/submit" method="post" enctype="multipart/form-data">
+		<div class="container-sm">
 			<div class="mb-3 row">
 				<div class="col">
 					<div class="form-floating">
-						<textarea class="form-control" id="floatingTextarea"></textarea>
+						<textarea name="comments" class="form-control" id="floatingTextarea"></textarea>
 						<label for="floatingTextarea">Comments</label>
 					</div>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<div class="col">
-					<div class="form-control">
-						<label for="upload">Upload outside pictures of warehouse</label>
-						<input id="upload" type="file"/>
-						<a href="" id="upload_link">Choose file</a>
+					<div class="form-floating">
+						<div class="form-control" id="lab" >
+						<span>
+							<p style="display: inline;">Drag and Drop (or)</p>
+							<a href="" id="upload_link" >Choose file</a>
+						</span>
+						</div>
+						<label for="lab ">Upload outside pictures of warehouse</label>
+						<input id="upload" name="outsidepic" type="file"/>
+						<!-- <input id="upload" name="outsidepic" onchange="loadFile1(event)" type="file"/>
+						<p><img id="output1" width="200" /></p> -->
 					</div>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<div class="col">
 					<div class="form-floating">
-						<!-- <label for="floatingTextarea">
-							<input class="form-control" style="display: none;" type="file" id="floatingTextarea">
-							Upload inside pictures of warehouse
-						</label> -->
+						<div class="form-control" id="lab" >
+						<span>
+							<p style="display: inline;">Drag and Drop (or)</p>
+							<a href="" id="anupload_link" >Choose file</a>
+						</span>
+						</div>
+						<label for="lab ">Upload inside pictures of warehouse</label>
+						<input id="upload" name="insidepic"  type="file"/>
+						<!-- <input id="upload" name="insidepic" onchange="loadFile2(event)" type="file"/>
+						<p><img id="output2" width="200" /></p> -->
 
 					</div>
 				</div>
 			</div>
+			<div class="mb-3 row">
+				 <div class="col">
+				<button type="button" onclick="history.back()" class="btn btn-sm btn-danger">Back</button>
+				</div>
+				<div class="col col-lg" >
+				<button type="submit" class="btn btn-sm btn-danger" >Submit</button>
+			</div>
+    			</div>
 		</div>
 
 	</form>
@@ -62,6 +89,24 @@
 			$("#upload:hidden").trigger('click');
 		});
 		});
+
+		$(function(){
+		$("#anupload_link").on('click', function(e){
+			e.preventDefault();
+			$("#upload:hidden").trigger('click');
+		});
+		});
+
+
+// 		var loadFile1 = function(event) {
+// 	var image1 = document.getElementById('output1');
+// 	image1.src = URL.createObjectURL(event.target.files[0]);
+// };
+
+// 		var loadFile2 = function(event) {
+// 	var image2 = document.getElementById('output2');
+// 	image2.src = URL.createObjectURL(event.target.files[0]);
+// };
 	</script>
 </body>
 </html>

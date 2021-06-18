@@ -9,15 +9,21 @@
 
 </head>
 <body>
+<div class="container-sm">
 
-	<form action="/lStep" method="post">
-		<div class="container-fluid">
 			<h4>Enter your Warehousing Listing</h4>
 			<h6>Please fill the details of your warehouse</h6>
+</div>
+<div class="container-sm mb-3" >
+		<img  src="/images/Picture3.jpg" style='height: 100%; width: 100%; object-fit: contain;' >
+</div>
+
+	<form action="/lStep" method="post">
+		<div class="container-sm">
 			<div class="mb-3 row">
 				<div class="col">
 					<div class="form-floating">
-						<textarea class="form-control" id="floatingTextarea"></textarea>
+						<textarea name="notallowed" class="form-control" id="floatingTextarea"></textarea>
 						<label for="floatingTextarea">Types of products not allowed to be stored</label>
 					</div>
 				</div>
@@ -38,10 +44,10 @@
 					 <label for="">Government Approval</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="GA" id="">
+					 <input type="radio" value="YES" name="GA" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="GA" id="">
+					 <input type="radio" value="NO" name="GA" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -49,10 +55,10 @@
 					 <label for="">Firefighting Arrangements</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="FA" id="">
+					 <input type="radio" value="YES" name="FA" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="FA" id="">
+					 <input type="radio" value="NO" name="FA" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -60,10 +66,10 @@
 					 <label for="">Weighbridge Facilities</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="WF" id="">
+					 <input type="radio" value="YES" name="WF" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="WF" id="">
+					 <input type="radio" value="NO" name="WF" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -71,10 +77,10 @@
 					 <label for="">Power Backup</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="PB" id="">
+					 <input type="radio" value="YES" name="PB" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="PB" id="">
+					 <input type="radio" value="NO" name="PB" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -82,10 +88,10 @@
 					 <label for="">Labour Availability</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="LA" id="">
+					 <input type="radio" value="YES" name="LA" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="LA" id="">
+					 <input type="radio" value="NO" name="LA" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -93,10 +99,10 @@
 					 <label for="">Grading Sorting Platform</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="GSP" id="">
+					 <input type="radio" value="YES" name="GSP" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="GSP" id="">
+					 <input type="radio" value="NO" name="GSP" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
@@ -104,15 +110,15 @@
 					 <label for="">Unloading Platform</label>
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="UP" id="">
+					 <input type="radio" value="YES" name="UP" id="">
 				</div>
 				<div class="col col-lg-2">
-					 <input type="radio" name="UP" id="">
+					 <input type="radio" value="NO" name="UP" id="">
 				 </div>
 			</div>
 			<div class="mb-3 row">
 				 <div class="col">
-				<button type="submit" class="btn btn-sm btn-danger">Back</button>
+				<button type="button" onclick="history.back()" class="btn btn-sm btn-danger">Back</button>
 				</div>
 				<div class="col" >
 				<button type="submit" class="btn btn-sm btn-danger" style="float: right;">Next</button>
