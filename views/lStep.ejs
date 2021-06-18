@@ -8,7 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<style>
 		#upload{
-		display:none
+		display:none;
 		}
 		#upload_link,#anupload_link{
 		text-decoration:none;
@@ -45,9 +45,8 @@
 						</span>
 						</div>
 						<label for="lab ">Upload outside pictures of warehouse</label>
-						<input id="upload" name="outsidepic" type="file"/>
-						<!-- <input id="upload" name="outsidepic" onchange="loadFile1(event)" type="file"/>
-						<p><img id="output1" width="200" /></p> -->
+						<!-- <input type="file" name="outsidepic" id="upload"> -->
+						<input type="file" name="outsidepic" id="upload">
 					</div>
 				</div>
 			</div>
@@ -61,10 +60,8 @@
 						</span>
 						</div>
 						<label for="lab ">Upload inside pictures of warehouse</label>
-						<input id="upload" name="insidepic"  type="file"/>
-						<!-- <input id="upload" name="insidepic" onchange="loadFile2(event)" type="file"/>
-						<p><img id="output2" width="200" /></p> -->
-
+						<!-- <input type="file" name="insidepic" id="upload"> -->
+						<input type="file" name="insidepic" id="upload">
 					</div>
 				</div>
 			</div>
@@ -96,17 +93,6 @@
 			$("#upload:hidden").trigger('click');
 		});
 		});
-
-
-// 		var loadFile1 = function(event) {
-// 	var image1 = document.getElementById('output1');
-// 	image1.src = URL.createObjectURL(event.target.files[0]);
-// };
-
-// 		var loadFile2 = function(event) {
-// 	var image2 = document.getElementById('output2');
-// 	image2.src = URL.createObjectURL(event.target.files[0]);
-// };
 	</script>
 </body>
 </html>

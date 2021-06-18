@@ -103,27 +103,26 @@ app.post("/submit",(req,res)=>{
 
 
 	person.comments = req.body.comments;
-	person.file1 = req.files.insidepic.name;
-	person.file2 = req.files.outsidepic.name;
+	// person.file1 = req.files.insidepic.name;
+	// person.file2 = req.files.outsidepic.name;
+console.log(req.files.insidepic.name);
 
+	// let insidepic = req.files.insidepic;
+	// let  uploadPath = __dirname + '/db/images/' + insidepic.name;
+	//  insidepic.mv(uploadPath, function(err) {
+	// if (err)
+	// 	return res.status(500).send(err);
+	// 	console.log("File1 Uploaded");
+	// })
 
-	let insidepic = req.files.insidepic;
-	let  uploadPath = __dirname + '/db/images/' + insidepic.name;
-	 insidepic.mv(uploadPath, function(err) {
-	if (err)
-		return res.status(500).send(err);
-		console.log("File1 Uploaded");
-	})
+	// let outsidepic = req.files.outsidepic;
+	// let  uploadPath2 = __dirname + '/db/images/' + outsidepic.name;
+	//  outsidepic.mv(uploadPath2, function(err) {
+	// if (err)
+	// 	return res.status(500).send(err);
+	// 	console.log("File2 Uploaded");
+	// })
 
-	let outsidepic = req.files.outsidepic;
-	let  uploadPath2 = __dirname + '/db/images/' + outsidepic.name;
-	 outsidepic.mv(uploadPath2, function(err) {
-	if (err)
-		return res.status(500).send(err);
-		console.log("File2 Uploaded");
-	})
-
-	console.log(person);
 	res.render("submit");
 });
 
